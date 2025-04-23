@@ -1,21 +1,21 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 
-type FilterValue = 'all' | 'pending' | 'completed';
+export type FilterType = 'all' | 'pending' | 'completed';
 
 // Define the props for the Filter component
 interface FilterProps {
   // The current filter value
-  filter: FilterValue;
+  filter: FilterType;
   // Callback function to update the filter in the parent component
-  onFilterChange: Dispatch<SetStateAction<FilterValue>>;
+  onFilterChange: Dispatch<SetStateAction<FilterType>>;
 }
 
 // Filter component
-const Filter: React.FC<FilterProps> = ({ filter, onFilterChange }) => {
+const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   // State to manage the currently active filter
-  const [activeFilter, setActiveFilter] = useState<FilterValue>('all');
+  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
 
-  const handleClick = (filter: FilterValue) => {
+  const handleClick = (filter: FilterType) => {
     setActiveFilter(filter);
     onFilterChange(filter);
   };

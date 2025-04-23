@@ -8,22 +8,15 @@ import logo from "/todo_logo.png";
 import {FilterType} from "./components/Filter";
 
 function App() {
-  // State to store the list of tasks. Initial value is an empty array.
-  const [tasks, setTasks] = useState<Task[]>([]);
+  // State to store the list of tasks. Initial value comes from localStorage or empty array
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
   // State to store the current filter ('all', 'pending', or 'completed'). Initial value is 'all'.
   const [filter, setFilter] = useState<FilterType>('all');
 
-  // useEffect to load tasks from localStorage on initial render.
-  useEffect(() => {
-    const storedTasks = localStorage.getItem("tasks");
-    if (storedTasks) {
-      // Parse the stored JSON string back into an array of tasks
-      // If there are not tasks in local storage, the tasks state will be initialized
-      // as an empty array
-      setTasks(JSON.parse(storedTasks));
-    }
-  }, []);
-
+  // useEffect to save tasks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
