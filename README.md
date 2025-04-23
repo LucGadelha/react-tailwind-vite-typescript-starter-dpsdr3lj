@@ -1,69 +1,101 @@
-# 🧩 Desafio Técnico: Aplicação de Lista de Tarefas
 
-Crie uma aplicação moderna de **Lista de Tarefas** utilizando React, com foco em boas práticas de desenvolvimento, organização do código, e estilização com Tailwind CSS.
+# 📝 To Do List - React + TypeScript + Tailwind CSS
 
----
+Uma aplicação moderna de lista de tarefas construída com React, TypeScript e Tailwind CSS.
 
-## 📋 Funcionalidades Obrigatórias
+## 🚀 Funcionalidades
 
-### 1. **Listagem de Tarefas**
+- ✨ Adicionar novas tarefas
+- ✅ Marcar tarefas como concluídas
+- 🗑️ Remover tarefas
+- 🔍 Filtrar tarefas por status (Todas, Pendentes, Concluídas)
+- 💾 Persistência automática de dados usando localStorage
+- 📱 Layout totalmente responsivo
 
-- Cada tarefa deve ser representada pelo seguinte tipo:
-  ```ts
-  type Task = {
-    id: string;
-    title: string;
-    status: 'pending' | 'completed';
-  };
-  ```
-- Exibir cada tarefa em **cards estilizados com Tailwind CSS**.
-- Layout deve ser **totalmente responsivo**.
+## 🛠️ Tecnologias Utilizadas
 
-### 2. **Adicionar Tarefa**
+- **React** - Biblioteca JavaScript para construção de interfaces
+- **TypeScript** - Adiciona tipagem estática ao JavaScript
+- **Tailwind CSS** - Framework CSS utilitário para estilização
+- **UUID** - Geração de IDs únicos
+- **Vite** - Build tool e dev server
 
-- Campo de texto para digitar o título da tarefa.
-- Validação mínima (não aceitar string vazia ou apenas espaços).
-- Botão para adicionar a tarefa na lista.
+## 📦 Estrutura do Projeto
 
-### 3. **Alternar Status (Toggle)**
+```
+src/
+├── components/         # Componentes React
+│   ├── AddTask.tsx    # Componente para adicionar tarefas
+│   ├── Filter.tsx     # Componente de filtros
+│   └── TaskList.tsx   # Componente de lista de tarefas
+├── types/             # Definições de tipos TypeScript
+└── App.tsx           # Componente principal
+```
 
-- Clicar em uma tarefa alterna seu status entre `pending` e `completed`.
+## 💻 Como Executar
 
-### 4. **Estilo Condicional**
+1. Clone o repositório
+```bash
+git clone https://github.com/LucGadelha/react-tailwind-vite-typescript-starter-dpsdr3lj
+```
 
-- Tarefas concluídas devem ter **estilo visual diferenciado**, como `line-through` no texto.
+2. Instale as dependências
+```bash
+npm install
+```
 
-### 5. **Remover Tarefa**
+3. Execute o projeto
+```bash
+npm run dev
+```
 
-- Botão de remoção individual por tarefa.
+## 🎯 Principais Características
 
-### 6. **Filtro por Status** _(Bônus)_
+### Gerenciamento de Estado
+- Utilização de `useState` para gerenciamento local de estado
+- Persistência automática usando `localStorage`
+- Estado tipado com TypeScript
 
-- Botões ou dropdown para filtrar a visualização:
-  - `Todas`
-  - `Pendentes`
-  - `Concluídas`
+### Componentes
+- **AddTask**: Formulário para adicionar novas tarefas
+- **TaskList**: Lista de tarefas com funcionalidades de toggle e remoção
+- **Filter**: Filtros para visualização das tarefas
 
-### 7. **Persistência com localStorage**
+### Tipos
+```typescript
+type Task = {
+  id: string;
+  title: string;
+  status: 'pending' | 'completed';
+};
 
-- As tarefas devem ser salvas no `localStorage`.
-- Carregar automaticamente a lista ao abrir a aplicação.
+type FilterType = 'all' | 'pending' | 'completed';
+```
 
----
+### Estilização
+- Uso de Tailwind CSS para design responsivo
+- Transições suaves
+- Interface moderna e limpa
+- Feedback visual para ações do usuário
 
-## 🛠️ Tecnologias Exigidas
+## 🔍 Funcionalidades Detalhadas
 
-- [ ] **React** (com Hooks)
-- [ ] **TypeScript**
-- [ ] **Tailwind CSS**
-- [ ] **LocalStorage API**
+### Adição de Tarefas
+- Validação para evitar tarefas vazias
+- Geração automática de IDs únicos
+- Feedback visual na adição
 
----
+### Gerenciamento de Tarefas
+- Toggle de status com checkbox
+- Remoção individual de tarefas
+- Estilo diferenciado para tarefas concluídas
 
-## 🎯 Critérios de Avaliação
+### Filtros
+- Visualização de todas as tarefas
+- Filtro de tarefas pendentes
+- Filtro de tarefas concluídas
 
-- ✅ Uso correto e limpo de **React com Hooks** (`useState`, `useEffect`)
-- ✅ Tipagem clara e correta com **TypeScript**
-- ✅ Layout **moderno e responsivo** com Tailwind CSS
-- ✅ Boa **experiência do usuário (UX)**
-- ✅ Código **organizado, limpo e legível**
+### Persistência
+- Salvamento automático no localStorage
+- Carregamento do estado na inicialização
+- Persistência entre recarregamentos da página
