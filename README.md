@@ -36,7 +36,7 @@ src/
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/LucGadelha/react-tailwind-vite-typescript-starter-dpsdr3lj
+git clone https://github.com/LucGadelha/todo-gipyo
 ```
 
 2. Instale as dependências
@@ -99,3 +99,7 @@ type FilterType = 'all' | 'pending' | 'completed';
 - Salvamento automático no localStorage
 - Carregamento do estado na inicialização
 - Persistência entre recarregamentos da página
+
+### [Site](https://todo-list-gipyo.vercel.app)
+
+
