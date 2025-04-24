@@ -1,5 +1,5 @@
 import React from 'react';
-import { Task } from '../types/Task';
+import { Task } from '../types';
 
 interface TaskListProps {
   tasks: Task[];
@@ -16,6 +16,13 @@ interface TaskListProps {
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, onToggleStatus, onRemoveTask }) => {
+  if (tasks.length === 0) {
+    return (
+      <div className="text-center py-8 border-2 border-dashed border-gray-300 rounded-lg my-4">
+        <p className="text-gray-600 text-lg font-medium">No tasks found</p>
+      </div>
+    );
+  }
   return (
     <div className="space-y-4">
       {tasks.map((task) => {
